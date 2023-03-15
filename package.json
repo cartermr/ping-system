@@ -1,0 +1,38 @@
+{
+  "name": "ping-system",
+  "version": "1.0.0",
+  "description": "TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node ./src/server.ts",
+    "build": "tsc --build",
+    "start": "node ./dist/server.js",
+    "profile": "nsolid ./dist/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://mattcarterdev@dev.azure.com/mattcarterdev/ping-system/_git/ping-system"
+  },
+  "author": "Matt Carter",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^18.14.0",
+    "@types/ws": "^8.5.4",
+    "nsolid": "^1.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "@types/cors": "^2.8.13",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "firebase-admin": "^11.5.0",
+    "socket.io": "^4.6.1"
+  },
+  "nsolid": {
+    "saas": "rZriYmWchTji}8e?Fj+F6Fl8Mk#1CfJ]aYo&[I^pe0418f7c-36a1-4151-b761-6dbac2f337c0.proxy.saas.nodesource.io:31927"
+  }
+}
