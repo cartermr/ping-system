@@ -1,12 +1,12 @@
 import { Socket } from 'node:net'
 import { db, Device } from '../database/database'
-import { Socket as WebSocket} from 'socket.io'
+// import { Socket as WebSocket} from 'socket.io'
 
 export class PingService {
     private _accountID: string = ''
     private runService: boolean = false
-    private _webSocket: WebSocket | undefined
     private _devices: Device[] = []
+    // private _webSocket: WebSocket | undefined
 
     constructor(accountID: string) {
         this._accountID = accountID
@@ -15,10 +15,6 @@ export class PingService {
 
     get accountID() {
         return this._accountID
-    }
-
-    get webSocket() {
-        return this._webSocket
     }
 
     private initiateDeviceWatch() {
@@ -75,10 +71,6 @@ export class PingService {
                 }
 
                 updateBatch.commit()
-
-                if (this._webSocket) {
-                    this._webSocket.emit('deviceUpdate', this._devices)
-                }
     
                 this.run()
             }, 3000)
@@ -94,13 +86,17 @@ export class PingService {
 
     stop() { this.runService = false }
 
-    attachWebSocket(webSocket: WebSocket) {
-        this._webSocket = webSocket
+    // attachWebSocket(webSocket: WebSocket) {
+    //     this._webSocket = webSocket
 
-        this._webSocket.on('disconnect', () => {
-            console.log('Killing Websocket')
+    //     this._webSocket.on('disconnect', () => {
+    //         console.log('Killing Websocket')
 
-            delete this._webSocket
-        })
-    }
+    //         delete this._webSocket
+    //     })
+    // }
+
+    // get webSocket() {
+    //     return this._webSocket
+    // }
 }
