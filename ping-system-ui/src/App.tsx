@@ -4,19 +4,29 @@ import NavBar from './components/NavBar'
 import LogIn from './pages/LogIn'
 
 import LandingPage from './pages/LandingPage'
+import SignUp from './pages/SignUp'
+import Container from '@mui/material/Container'
+import { CssBaseline } from '@mui/material'
 
 const App = () => {
 
   const router = createBrowserRouter([
-    { path: '/', element: <LandingPage /> },
-    { path: '/login', element: <LogIn /> }
+    {
+      path: '/',
+      element: <NavBar />,
+      children: [
+        { path: 'login', element: <LogIn /> },
+        { path: '', element: <LandingPage /> },
+        { path: 'signup', element: <SignUp /> }
+      ]
+    },
   ])
 
   return (
-    <>
-      <NavBar />
+    <Container>
+      <CssBaseline />
       <RouterProvider router={router} />
-    </>
+    </Container>
   )
 }
 
